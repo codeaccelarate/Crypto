@@ -60,7 +60,48 @@
 
     <div class="container">
         <h1 class="mt-5 mb-4 text-center">Cryptocurrency Project Explanation</h1>
-    
+    <h2>Program Explanation (Simple and Effective Way)</h2>
+    <p>
+        This program is a web-based application built using Flask that predicts cryptocurrency prices using LSTM neural networks. Here's a simplified breakdown:
+    </p>
+    <ul>
+        <li>The program uses the Binance API to retrieve historical price data of cryptocurrencies.</li>
+        <li>It preprocesses the data by extracting closing prices and normalizing them using MinMaxScaler.</li>
+        <li>The LSTM models (one for each cryptocurrency) are loaded with pre-trained weights.</li>
+        <li>When a user makes a prediction request through the web interface, the appropriate model is used to predict future prices.</li>
+        <li>Predictions are displayed along with real prices, percentage differences, and recommendations (buy, sell, hold) based on the prediction.</li>
+        <li>The program also generates plots comparing predicted prices with real prices for visualization.</li>
+        <li>The Flask framework enables the interaction through a user-friendly web interface.</li>
+    </ul>
+
+    <h2>Requirements</h2>
+    <p>
+        The code requires several libraries and tools to run successfully:
+    </p>
+    <ul>
+        <li>Flask for the web application framework.</li>
+        <li>Keras for building and training LSTM neural network models.</li>
+        <li>pandas for data manipulation and analysis.</li>
+        <li>numpy for numerical computations.</li>
+        <li>sklearn for data preprocessing (MinMaxScaler).</li>
+        <li>matplotlib for generating plots.</li>
+        <li>Binance API (`binance.client.Client`) for fetching historical cryptocurrency data.</li>
+    </ul>
+
+    <h2>How Data is Collected?</h2>
+    <p>
+        Data is collected using the Binance API (`binance.client.Client`). The code retrieves historical price data for specific cryptocurrencies (Bitcoin, Ethereum, Litecoin, Ripple) within a given time range. The data is returned as a DataFrame and then used for further analysis and prediction.
+    </p>
+
+    <h2>How Data is Filtered?</h2>
+    <p>
+        The historical price data fetched from Binance API is filtered to extract specific features, mainly the closing prices (`'Close'` column). These closing prices are used as the basis for predicting future prices.
+    </p>
+
+    <h2>What Algorithms are Used?</h2>
+    <p>
+        The primary algorithm used in this program is the Long Short-Term Memory (LSTM) neural network, implemented using Keras. LSTM networks are suitable for sequence prediction tasks, such as time series forecasting, which makes them ideal for predicting cryptocurrency prices based on historical data.
+    </p>
         <h2>Module Explanations</h2>
 
 <!-- Explanation for NumPy -->
