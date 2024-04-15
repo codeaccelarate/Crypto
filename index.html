@@ -320,7 +320,57 @@ app = Flask(__name__)
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
         </code></pre>
-    
+    <h2>Machine Learning Model Used:</h2>
+    <p>
+        The script uses LSTM (Long Short-Term Memory) neural networks for predicting cryptocurrency prices. LSTM is a type of deep learning model particularly good at learning patterns in sequential data, like time series.
+    </p>
+
+    <h2>Algorithm:</h2>
+    <ol>
+        <li>
+            <strong>LSTM (Long Short-Term Memory):</strong>
+            <ul>
+                <li>LSTM is a type of neural network architecture suitable for sequence prediction tasks.</li>
+                <li>It's designed to capture long-term dependencies in data, which is important for time series forecasting like cryptocurrency prices.</li>
+                <li>The model consists of multiple LSTM layers followed by a dense (fully connected) layer for predicting the next value in a sequence based on historical data.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Steps in Machine Learning Part:</h2>
+    <ol>
+        <li>
+            <strong>Model Definition (`model_definition()`):</strong>
+            <ul>
+                <li>This function sets up the LSTM model architecture using Keras (a deep learning library).</li>
+                <li>It creates a neural network with two LSTM layers and one dense layer for prediction.</li>
+                <li>The model is configured to minimize prediction errors using the mean squared error loss function and the Adam optimizer.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Loading Pre-Trained Models:</strong>
+            <ul>
+                <li>The script loads pre-trained LSTM models (`btc_model`, `eth_model`, etc.) from saved files (`btc_model.h5`, `eth_model.h5`, etc.).</li>
+                <li>These models have already been trained on historical cryptocurrency price data to make accurate predictions.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Data Preparation (`data_extract()`):</strong>
+            <ul>
+                <li>Historical price data for a specific cryptocurrency (like Bitcoin or Ethereum) is fetched using the Binance API.</li>
+                <li>The data is processed and prepared to be fed into the LSTM model for prediction.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Prediction (`predict()`):</strong>
+            <ul>
+                <li>When a prediction request is made (e.g., to predict Bitcoin's price for the next day), the appropriate LSTM model is selected based on the chosen cryptocurrency.</li>
+                <li>The model is used to predict the future price based on historical price data.</li>
+                <li>The predicted prices are then transformed back to their original scale to provide meaningful predictions.</li>
+            </ul>
+        </li>
+    </ol>
+
         <h2>Conclusion</h2>
         <p>
             The provided code leverages a combination of machine learning techniques (LSTM models), data preprocessing (scaling), web development (Flask), and data manipulation/visualization (NumPy, Pandas, Matplotlib) to build a cryptocurrency visualization project. Each module and component plays a critical role in retrieving, processing, modeling, and presenting cryptocurrency data and predictions through a user-friendly web interface.
